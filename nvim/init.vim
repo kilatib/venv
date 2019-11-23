@@ -6,7 +6,7 @@
 "
 call plug#begin(stdpath('data') . '/plugged')
 
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle'}
+Plug 'scrooloose/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'leafgarland/typescript-vim'
@@ -39,6 +39,11 @@ Plug 'jiangmiao/auto-pairs'
 " theme 
 Plug 'dracula/vim', { 'as': 'dracula' }
 
+" tmnux syntax
+  Plug 'tmux-plugins/vim-tmux'
+  Plug 'christoomey/vim-tmux-navigator'   " tmux navigation 
+  Plug 'vim-airline/vim-airline'          " status line 
+  Plug 'vim-airline/vim-airline-themes'   " status line themes
 call plug#end()
 
 " Fundamental settings
@@ -89,7 +94,6 @@ call plug#end()
 " key maps 
   map <F12> :NERDTreeToggle<CR>
 
-
 " CtrlP
   "let g:ctrlp_map = '<C-S>o'
   let g:ctrlp_cmd = 'CtrlP'
@@ -99,7 +103,7 @@ call plug#end()
 " Ignore Dirs
   let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
   let g:ctrlp_custom_ignore = {
-	  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+	  \ 'dir':  '\v[\/]\.(git|hg|svn|node_modules)$',
 	  \ 'file': '\v\.(exe|so|dll)$',
 	  \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
 	  \ }
@@ -109,7 +113,6 @@ call plug#end()
 " run async
   let g:prettier#exec_cmd_async = 1
   map <C-l> :Prettier<CR>
-
 
 "  
 " Deoplete
@@ -138,6 +141,35 @@ call plug#end()
     au FileType javascript setlocal foldmethod=syntax
   augroup END
 
-"
-" TagBar
-  nmap <F8> :TagbarToggle<CR>
+" Tabs settings
+  nnoremap <C-t>     :tabnew<CR>
+  inoremap <C-tab>   <Esc>:tabnext<CR>i
+  inoremap <C-t>     <Esc>:tabnew<CR>
+  inoremap <C-W>   <Esc>:tabclose<CR>
+  nnoremap <A-F1> 1gt
+  nnoremap <A-F2> 2gt
+  nnoremap <A-F3> 3gt
+  nnoremap <A-F4> 4gt
+  nnoremap <A-F5> 5gt
+  nnoremap <A-F6> 6gt
+  nnoremap <A-F7> 7gt
+  nnoremap <A-F8> 8gt
+  nnoremap <A-F9> 9gt
+  nnoremap <A-F10> 10gt
+  map <C-W> :tabclose<CR>
+
+" Airline
+  let g:airline#extensions#tabline#enabled = 1
+" tabline   
+  map <tab> :bnext<CR>
+  map <S-tab> :bprev<CR>
+  let g:airline#extensions#tabline#enabled = 1           " enable airline tabline                                                           
+  let g:airline#extensions#tabline#show_close_button = 0 " remove 'X' at the end of the tabline                                            
+  let g:airline#extensions#tabline#fnamemod = ':t'       " disable file paths in the tab                                                    
+  let g:airline#extensions#tabline#tab_min_count = 2     " minimum of 2 tabs needed to display the tabline 
+  nnoremap <leader>d :bd#<CR>
+
+
+
+
+
