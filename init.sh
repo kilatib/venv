@@ -9,7 +9,9 @@ rm -rf .zshrc
 ln -s $REPO/.zshrc
 
 rm -rf .ctags
+rm -rf .ctagsignore
 ln -s $REPO/.ctags
+ln -s $REPO/.ctagsignore
 
 rm -rf .tmux.conf
 ln -s $REPO/.tmux.conf
@@ -24,7 +26,6 @@ cd ../../
 rm -rf .ssh/config
 cd .ssh
 ln -s $REPO/.ssh/config
-chmod 600 config
 
 git config --global init.templatedir "${UHOME}/.git_template"
 mkdir -p ${UHOME}/.git_template/hooks
