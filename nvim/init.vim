@@ -94,6 +94,8 @@ call plug#end()
 
 " key maps 
   map <F12> :NERDTreeToggle<CR>
+  nmap <C-Right> :vertical res +10<CR>
+  nmap <C-Left> :vertical res -10<CR>
 
 " CtrlP
   "let g:ctrlp_map = '<C-S>o'
