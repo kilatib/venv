@@ -10,7 +10,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'honza/vim-snippets'
 
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'dense-analysis/ale'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'npm install',
@@ -33,6 +33,9 @@ Plug 'prettier/vim-prettier', {
 Plug 'vim-syntastic/syntastic'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fugitive'
+
+" IDE autocomplete
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " theme 
 Plug 'dracula/vim', { 'as': 'dracula' }
@@ -171,6 +174,9 @@ call plug#end()
 
 " add some tags for html indentations
 :let g:html_indent_inctags = "html,body,head,tbody"
+
+" Coc settings
+source ~/.config/nvim/coc.plugin.vim
 
 
 

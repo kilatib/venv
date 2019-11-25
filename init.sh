@@ -18,7 +18,9 @@ mkdir -p .config/nvim
 rm -rf .config/nvim/init.vim
 cd .config/nvim
 rm -rf init.vim
+rm -rf coc.plugin.vim
 ln -s $REPO/nvim/init.vim
+ln -s $REPO/nvim/coc.plugin.vim
 cd ../../
 
 rm -rf .ssh/config
