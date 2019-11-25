@@ -144,7 +144,6 @@ call plug#end()
 " Tabs settings
   nnoremap <C-t>     :tabnew<CR>
   inoremap <C-tab>   <Esc>:tabnext<CR>i
-  inoremap <C-t>     <Esc>:tabnew<CR>
   inoremap <C-W>   <Esc>:tabclose<CR>
   nnoremap <A-F1> 1gt
   nnoremap <A-F2> 2gt
@@ -169,7 +168,7 @@ call plug#end()
   let g:airline#extensions#tabline#tab_min_count = 2     " minimum of 2 tabs needed to display the tabline 
   nnoremap <leader>d :bd#<CR>
 
-
-
+" Ctags
+  au BufWritePost *.php,*.ts,*.js,*.json,*.html silent! !ctags -R &
 
 
