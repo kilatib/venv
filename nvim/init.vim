@@ -1,6 +1,3 @@
-
-
-
 "
 " INSTALL PLUGINS
 "
@@ -35,6 +32,7 @@ Plug 'prettier/vim-prettier', {
     \ 'swift' ] }
 Plug 'vim-syntastic/syntastic'
 Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-fugitive'
 
 " theme 
 Plug 'dracula/vim', { 'as': 'dracula' }
@@ -170,6 +168,8 @@ call plug#end()
   nnoremap <leader>d :bd#<CR>
 
 
+" add some tags for html indentations
+:let g:html_indent_inctags = "html,body,head,tbody"
 
 
 

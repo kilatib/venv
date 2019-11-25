@@ -26,4 +26,10 @@ cd .ssh
 ln -s $REPO/.ssh/config
 chmod 600 config
 
+git config --global init.templatedir "${UHOME}/.git_template"
+mkdir -p ${UHOME}/.git_template/hooks
+
+rm -rf .git_template/hooks/ctags
+cd .git_template/hooks 
+ln -s $REPO/git/hooks/ctags
 
