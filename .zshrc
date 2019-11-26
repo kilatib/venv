@@ -103,3 +103,5 @@ TERM="${TERM:-xterm-256color}"
 ZSH_TMUX_AUTOSTART=true
 
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

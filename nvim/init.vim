@@ -10,7 +10,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'honza/vim-snippets'
 
-"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'dense-analysis/ale'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'npm install',
@@ -36,6 +36,7 @@ Plug 'prettier/vim-prettier', {
 
 " IDE autocomplete
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'shawncplus/phpcomplete.vim'    
 
 " theme 
   Plug 'dracula/vim', { 'as': 'dracula' }
@@ -49,6 +50,19 @@ Plug 'prettier/vim-prettier', {
 " PHP
   Plug 'vim-vdebug/vdebug'
   Plug 'dbakker/vim-projectroot'
+  Plug 'StanAngeloff/php.vim', {'for': 'php'}
+  Plug 'nishigori/vim-php-dictionary', {'for': 'php'}
+  Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
+
+" fzf - poweful fuzzy finder
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
+
+" display the hexadecimal colors - useful for css and color config
+  Plug 'ap/vim-css-color' 
+
+" CSV plugin
+  Plug 'chrisbra/csv.vim'  
 call plug#end()
 
 " Fundamental settings
@@ -196,7 +210,9 @@ call plug#end()
   \}
 
 " Coc settings
-source ~/.config/nvim/coc.plugin.vim
+  source ~/.config/nvim/coc.plugin.vim
 
+" Use deoplete.
+  let g:deoplete#enable_at_startup = 1
 
 
