@@ -1,4 +1,4 @@
-" :CocInstall coc-angular coc-tsserver coc-eslint coc-json coc-prettier coc-css
+" :CocInstall coc-angular coc-tsserver coc-eslint coc-json coc-prettier coc-css coc-html
 
 " if hidden is not set, TextEdit might fail.
 set hidden
@@ -128,3 +128,7 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+
+" html
+html.enable=true
