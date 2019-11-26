@@ -37,6 +37,7 @@ Plug 'prettier/vim-prettier', {
 " IDE autocomplete
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'shawncplus/phpcomplete.vim'    
+  Plug 'StanAngeloff/php.vim'
 
 " theme 
   Plug 'dracula/vim', { 'as': 'dracula' }
@@ -53,6 +54,12 @@ Plug 'prettier/vim-prettier', {
   Plug 'StanAngeloff/php.vim', {'for': 'php'}
   Plug 'nishigori/vim-php-dictionary', {'for': 'php'}
   Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
+" toml syntax highlighting
+  Plug 'cespare/vim-toml'
+
+" Plug to dim not-focused windows
+  Plug 'blueyed/vim-diminactive'
+
 
 " fzf - poweful fuzzy finder
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -115,6 +122,7 @@ call plug#end()
   map <F12> :NERDTreeToggle<CR>
   nmap <C-Right> :vertical res +10<CR>
   nmap <C-Left> :vertical res -10<CR>
+  nmap <leader>r :NERDTreeFind<cr>
 
 " CtrlP
   "let g:ctrlp_map = '<C-S>o'
