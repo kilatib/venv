@@ -95,6 +95,7 @@ call plug#end()
 " ignore
   set wildignore+=*.pyc,*.o,*.obj,*.svn,*.swp,*.class,*.hg,*.DS_Store,*.min.*,node_modules,tags
   let NERDTreeRespectWildIgnore=1
+  let NERDTreeShowHidden=1
 
 " key maps 
   map <F12> :NERDTreeToggle<CR>
