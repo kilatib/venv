@@ -30,21 +30,25 @@ Plug 'prettier/vim-prettier', {
     \ 'ruby',
     \ 'html',
     \ 'swift' ] }
-Plug 'vim-syntastic/syntastic'
-Plug 'jiangmiao/auto-pairs'
-Plug 'tpope/vim-fugitive'
+  Plug 'vim-syntastic/syntastic'
+  Plug 'jiangmiao/auto-pairs'
+  Plug 'tpope/vim-fugitive'
 
 " IDE autocomplete
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " theme 
-Plug 'dracula/vim', { 'as': 'dracula' }
+  Plug 'dracula/vim', { 'as': 'dracula' }
 
 " tmnux syntax
   Plug 'tmux-plugins/vim-tmux'
   Plug 'christoomey/vim-tmux-navigator'   " tmux navigation 
   Plug 'vim-airline/vim-airline'          " status line 
   Plug 'vim-airline/vim-airline-themes'   " status line themes
+
+" PHP
+  Plug 'vim-vdebug/vdebug'
+  Plug 'dbakker/vim-projectroot'
 call plug#end()
 
 " Fundamental settings
@@ -175,7 +179,20 @@ call plug#end()
   au BufWritePost *.php,*.ts,*.js,*.json,*.html silent! !ctags -R &
 
 " add some tags for html indentations
-:let g:html_indent_inctags = "html,body,head,tbody"
+  let g:html_indent_inctags = "html,body,head,tbody"
+
+" PROJECTROOT
+  let g:rootmarkers = ['.projectroot', 'docker-compose.yml', '.git', '.hg', '.svn', '.bzr','_darcs','build.xml']
+
+" VDEBUG
+  let g:vdebug_options = {
+    \  'break_on_open':      0,                 
+    \  'watch_window_style': 'compact',    
+    \  'server':             'docker.for.mac.localhost', 
+    \  'path_maps': {
+    \  '/opt/checkster/core': '~/src/core'
+    \ }
+  \}
 
 " Coc settings
 source ~/.config/nvim/coc.plugin.vim
