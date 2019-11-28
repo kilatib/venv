@@ -236,4 +236,7 @@ call plug#end()
 " Use deoplete.
   let g:deoplete#enable_at_startup = 1
 
-
+" Ctrl-S save
+  noremap <silent> <C-S>          :update<CR>
+  vnoremap <silent> <C-S>         <C-C>:update<CR>
+  inoremap <silent> <C-S>         <C-O>:update<CR>
