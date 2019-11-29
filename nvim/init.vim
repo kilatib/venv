@@ -38,6 +38,8 @@ Plug 'prettier/vim-prettier', {
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'shawncplus/phpcomplete.vim'    
   Plug 'StanAngeloff/php.vim'
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
 
 " theme 
   Plug 'dracula/vim', { 'as': 'dracula' }
@@ -218,15 +220,16 @@ call plug#end()
   let g:html_indent_inctags = "html,body,head,tbody"
 
 " PROJECTROOT
-  let g:rootmarkers = ['.projectroot', 'docker-compose.yml', '.git', '.hg', '.svn', '.bzr','_darcs','build.xml']
+  let g:rootmarkers = ['codeception.yml','.projectroot', 'docker-compose.yml', '.git', '.hg', '.svn', '.bzr','_darcs','build.xml']
 
 " VDEBUG
   let g:vdebug_options = {
-    \  'break_on_open':      0,                 
+    \  'break_on_open':      1,                 
     \  'watch_window_style': 'compact',    
-    \  'server':             'docker.for.mac.localhost', 
+    \  'server':             'docker.for.mac.localhost',
+    \  'ide_key':            'PHPSTORM',
     \  'path_maps': {
-    \  '/opt/checkster/core': '~/src/core'
+    \  '/opt/checkster/core': '/Users/checkster/src/core'
     \ }
   \}
 
