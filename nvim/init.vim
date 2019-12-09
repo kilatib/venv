@@ -4,6 +4,7 @@
 call plug#begin(stdpath('data') . '/plugged')
 
 Plug 'scrooloose/nerdtree'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'leafgarland/typescript-vim'
@@ -41,6 +42,9 @@ Plug 'prettier/vim-prettier', {
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
 
+" Unit Tests
+  Plug 'janko/vim-test' 
+
 " theme 
   Plug 'dracula/vim', { 'as': 'dracula' }
 
@@ -56,6 +60,8 @@ Plug 'prettier/vim-prettier', {
   Plug 'StanAngeloff/php.vim', {'for': 'php'}
   Plug 'nishigori/vim-php-dictionary', {'for': 'php'}
   Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
+  Plug 'majutsushi/tagbar'
+
 " toml syntax highlighting
   Plug 'cespare/vim-toml'
 
@@ -97,6 +103,12 @@ call plug#end()
   set number           "line number
   set nowrap           "no line wrapping
   colorscheme dracula
+
+" Reloads the vim config after saving.
+   augroup myvimrc
+     au!
+     au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+   augroup END
 
 
 "
@@ -223,15 +235,25 @@ call plug#end()
   let g:rootmarkers = ['codeception.yml','.projectroot', 'docker-compose.yml', '.git', '.hg', '.svn', '.bzr','_darcs','build.xml']
 
 " VDEBUG
-  let g:vdebug_options = {
-    \  'break_on_open':      1,                 
-    \  'watch_window_style': 'compact',    
-    \  'server':             'docker.for.mac.localhost',
-    \  'ide_key':            'PHPSTORM',
-    \  'path_maps': {
-    \  '/opt/checkster/core': '/Users/checkster/src/core'
+  let g:vdebug_options= {
+    \    "port" : 9000,
+    \    "server" : 'docker.for.mac.localhost',
+    \    "timeout" : 20,
+    \    "on_close" : 'detach',
+    \    "break_on_open" : 0,
+    \    "ide_key" : 'PHPSTORM',
+    \    "path_maps" : {
+    \       '/opt/checkster/core': '/Users/checkster/src/core'   
+    \    },
+    \    "debug_window_level" : 0,
+    \    "debug_file_level" : 0,
+    \    "debug_file" : "",
+    \    "watch_window_style" : 'compact',
+    \    "marker_default" : '⬦',
+    \    "marker_closed_tree" : '▸',
+    \    "marker_open_tree" : '▾'
     \ }
-  \}
+  
 
 " Coc settings
   source ~/.config/nvim/coc.plugin.vim
@@ -243,3 +265,29 @@ call plug#end()
   noremap <silent> <C-S>          :update<CR>
   vnoremap <silent> <C-S>         <C-C>:update<CR>
   inoremap <silent> <C-S>         <C-O>:update<CR>
+
+" these "Ctrl mappings" work well when Caps Lock is mapped to Ctrl
+  nmap <silent> t<C-n> :TestNearest<CR>
+  nmap <silent> t<C-f> :TestFile<CR>
+  nmap <silent> t<C-s> :TestSuite<CR>
+  nmap <silent> t<C-l> :TestLast<CR>
+  nmap <silent> t<C-g> :TestVisit<CR>
+
+" tagbar
+  nmap <F8> :TagbarToggle<CR>
+
+" Search test in a file 
+nnoremap <leader>f
+  \ :call fzf#vim#files('.', fzf#vim#with_preview({'options': ['--query', expand('<cword>')]}))<cr>
+
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep('rg --column --no-heading --line-number --color=always '.shellescape(<q-args>),
+  \ 1,
+  \ fzf#vim#with_preview(),
+  \ <bang>0)
+
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>,
+  \ fzf#vim#with_preview(),
+  \ <bang>0)
+

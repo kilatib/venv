@@ -102,6 +102,15 @@ source $ZSH/oh-my-zsh.sh
 TERM="${TERM:-xterm-256color}"
 ZSH_TMUX_AUTOSTART=true
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export BAT_THEME="TwoDark"
+export FZF_COMPLETION_OPTS="--preview '(bat --color=always {} || cat {} || tree -C {}) 2> /dev/null | head -200'"
+export FZF_CTRL_T_OPTS="$FZF_COMPLETION_OPTS"
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*" --glob "!node_modules/*"'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+
+
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
