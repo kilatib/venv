@@ -41,12 +41,20 @@ Plug 'prettier/vim-prettier', {
   Plug 'StanAngeloff/php.vim'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
+  Plug 'ycm-core/YouCompleteMe', {'do': './install.py --clang-completer'}
+  Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
 
 " Unit Tests
   Plug 'janko/vim-test' 
 
 " theme 
-  Plug 'dracula/vim', { 'as': 'dracula' }
+  " Plug 'dracula/vim', { 'as': 'dracula' }
+  " Plug 'blueshirts/darcula'
+  Plug 'doums/darcula'
 
 " tmnux syntax
   Plug 'tmux-plugins/vim-tmux'
@@ -64,6 +72,7 @@ Plug 'prettier/vim-prettier', {
 
 " toml syntax highlighting
   Plug 'cespare/vim-toml'
+  Plug 'itchyny/lightline.vim'
 
 " Plug to dim not-focused windows
   Plug 'blueyed/vim-diminactive'
@@ -78,6 +87,8 @@ Plug 'prettier/vim-prettier', {
 
 " CSV plugin
   Plug 'chrisbra/csv.vim'  
+" Word search
+  Plug 'mileszs/ack.vim'
 call plug#end()
 
 " Fundamental settings
@@ -92,8 +103,8 @@ call plug#end()
 " Some useful settings
   set smartindent
   set expandtab         "tab to spaces
-  set tabstop=2         "the width of a tab
-  set shiftwidth=2      "the width for indent
+  set tabstop=4         "the width of a tab
+  set shiftwidth=4      "the width for indent
   set foldenable
   set foldmethod=indent "folding by indent
   set foldlevel=99
@@ -102,8 +113,25 @@ call plug#end()
 " Lookings
   set number           "line number
   set nowrap           "no line wrapping
-  colorscheme dracula
+  colorscheme darcula
+  set termguicolors
+  let g:lightline = { 'colorscheme': 'darcula' }
+" show unreddable symbols 
+  set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»
+  set list
+  set mouse +=a
+  set clipboard=unnamedplus
+  map <leader>c "+y
+  map <leader>v "+P
+  map <D-c> "+y
+  map <D-v> "+P
+  map <M-c> "+y
+  map <M-v> "+P
 
+  
+
+
+  
 " Reloads the vim config after saving.
    augroup myvimrc
      au!
@@ -136,6 +164,8 @@ call plug#end()
   map <F12> :NERDTreeToggle<CR>
   nmap <C-Right> :vertical res +10<CR>
   nmap <C-Left> :vertical res -10<CR>
+  nmap <leader><Right> :vertical res +10<CR>
+  nmap <leader><Left> :vertical res -10<CR>
   nmap <leader>r :NERDTreeFind<cr>
 
 " CtrlP
@@ -167,6 +197,7 @@ call plug#end()
 " syntastic
   set statusline+=%#warningmsg#
   set statusline+=%{SyntasticStatuslineFlag()}
+  set statusline+=%{FugitiveStatusline()}
   set statusline+=%*
 
   let g:syntastic_always_populate_loc_list = 1
@@ -232,28 +263,27 @@ call plug#end()
   let g:html_indent_inctags = "html,body,head,tbody"
 
 " PROJECTROOT
-  let g:rootmarkers = ['codeception.yml','.projectroot', 'docker-compose.yml', '.git', '.hg', '.svn', '.bzr','_darcs','build.xml']
+  let g:rootmarkers = ['codeception.yml','.projectroot', 'docker-compose.yml', '.git', '.hg', '.svn', '.bzr','_darcs', 'build.xml']
 
 " VDEBUG
-  let g:vdebug_options= {
-    \    "port" : 9000,
-    \    "server" : 'docker.for.mac.localhost',
-    \    "timeout" : 20,
-    \    "on_close" : 'detach',
-    \    "break_on_open" : 0,
-    \    "ide_key" : 'PHPSTORM',
-    \    "path_maps" : {
-    \       '/opt/checkster/core': '/Users/checkster/src/core'   
-    \    },
-    \    "debug_window_level" : 0,
-    \    "debug_file_level" : 0,
-    \    "debug_file" : "",
-    \    "watch_window_style" : 'compact',
-    \    "marker_default" : '⬦',
-    \    "marker_closed_tree" : '▸',
-    \    "marker_open_tree" : '▾'
-    \ }
-  
+ if !exists('g:vdebug_options')
+    let g:vdebug_options = {}
+ endif
+
+ "let g:vdebug_options["server"]= 'docker.for.mac.localhost' 
+ let g:vdebug_options["timeout"]= 20 
+ let g:vdebug_options["on_close"]= 'detach'
+ let g:vdebug_options["break_on_open"]= 0
+ let g:vdebug_options["ide_key"]= 'PHPSTORM'
+ let g:vdebug_options["path_maps"]=  {'/opt/checkster/core' : '/Users/checkster/src/core'}
+ let g:vdebug_options["debug_window_level"]= 0
+ let g:vdebug_options["debug_file_level"]= 0
+ let g:vdebug_options["debug_file"]= ''
+ let g:vdebug_options["watch_window_style"]= 'compact'
+ let g:vdebug_options["watch_window_height"]= 45
+ let g:vdebug_options["marker_default"]= '⬦' 
+ let g:vdebug_options["marker_closed_tree"]= '▸'
+ let g:vdebug_options["marker_open_tree"]= '▾'
 
 " Coc settings
   source ~/.config/nvim/coc.plugin.vim
@@ -276,18 +306,20 @@ call plug#end()
 " tagbar
   nmap <F8> :TagbarToggle<CR>
 
-" Search test in a file 
-nnoremap <leader>f
-  \ :call fzf#vim#files('.', fzf#vim#with_preview({'options': ['--query', expand('<cword>')]}))<cr>
+" vim-fugitive
+   map <leader>gb :Gblame<CR>
+   map <leader>gd :Gvdiffsplit!<CR>
+   map <leader>gs :Gstatus<CR>
+   map <leader>gp :Gpull<CR>
+   map <leader>gpu :Gpush<CR>
+   map <leader>gcl :Gclog<CR>
+   map <leader>gl :Gllog<CR>
+   map <leader>g<Right> :diffget //2<CR> :diffupdate<CR>
+   map <leader>g<Left> :diffget //3<CR> :diffupdate<CR>
+   map <leader>gu :diffupdate<CR>
+   map <leader>gw :Gwrite<CR>
+   map <leader>gc :Gcommit<CR>
 
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep('rg --column --no-heading --line-number --color=always '.shellescape(<q-args>),
-  \ 1,
-  \ fzf#vim#with_preview(),
-  \ <bang>0)
-
-command! -bang -nargs=? -complete=dir Files
-  \ call fzf#vim#files(<q-args>,
-  \ fzf#vim#with_preview(),
-  \ <bang>0)
-
+" Search word
+  cnoreabbrev Ack Ack!
+  nnoremap <Leader>a :Ack!<Space>
