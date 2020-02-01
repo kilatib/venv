@@ -1,0 +1,2 @@
+#!/bin/bash
+sudo sshfs -o allow_other,defer_permissions,IdentityFile=~/.ssh/dobeautyme.dev pi@dobeautyme.dev:/home/pi/src/dobeautyme /Users/checkster/src/dobeautyme-mount
