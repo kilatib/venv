@@ -112,7 +112,7 @@ call plug#end()
   set number           "line number
   set nowrap           "no line wrapping
   colorscheme darcula
-  "set termguicolors
+  " set termguicolors
   let g:lightline = { 'colorscheme': 'darculaOriginal' } 
 " show unreddable symbols 
   "set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»
