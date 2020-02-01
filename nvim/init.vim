@@ -44,6 +44,17 @@ Plug 'prettier/vim-prettier', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
+  Plug 'Shougo/vimproc.vim', {
+    \ 'build' : {
+    \     'windows' : 'tools\\update-dll-mingw',
+    \     'cygwin' : 'make -f make_cygwin.mak',
+    \     'mac' : 'make -f make_mac.mak',
+    \     'linux' : 'make',
+    \     'unix' : 'gmake',
+    \    },
+    \ }
+  
+  Plug 'Quramy/tsuquyomi'
 
 
 " Unit Tests
@@ -164,7 +175,7 @@ call plug#end()
   nmap <C-Left> :vertical res -10<CR>
   nmap <leader><Right> :vertical res +10<CR>
   nmap <leader><Left> :vertical res -10<CR>
-  nmap <leader>r :NERDTreeFind<cr>
+  nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p>
 
 " CtrlP
   "let g:ctrlp_map = '<C-S>o'
