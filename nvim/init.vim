@@ -184,6 +184,11 @@ call plug#end()
 " 
 " run async
   let g:prettier#exec_cmd_async = 1
+  " number of spaces per indentation level
+  " Prettier default: 2
+  let g:prettier#config#tab_width = 4
+  let g:prettier#config#single_quote = 'true'
+  let g:prettier#quickfix_auto_focus = 0
   map <C-l> :Prettier<CR>
 
 "  
