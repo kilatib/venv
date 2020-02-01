@@ -24,13 +24,11 @@ Plug 'prettier/vim-prettier', {
     \ 'json',
     \ 'graphql',
     \ 'markdown',
-    \ 'vue',
-    \ 'lua',
     \ 'php',
     \ 'python',
     \ 'ruby',
-    \ 'html',
-    \ 'swift' ] }
+    \ 'html'
+    \ ]}
   Plug 'vim-syntastic/syntastic'
   Plug 'jiangmiao/auto-pairs'
   Plug 'tpope/vim-fugitive'
@@ -114,10 +112,10 @@ call plug#end()
   set number           "line number
   set nowrap           "no line wrapping
   colorscheme darcula
-  set termguicolors
-  let g:lightline = { 'colorscheme': 'darcula' }
+  "set termguicolors
+  let g:lightline = { 'colorscheme': 'darculaOriginal' } 
 " show unreddable symbols 
-  set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»
+  "set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»
   set list
   set mouse +=a
   set clipboard=unnamedplus
@@ -126,7 +124,7 @@ call plug#end()
   map <D-c> "+y
   map <D-v> "+P
   map <M-c> "+y
-  map <M-v> "+P
+  map <M-v> "+P 
 
   
 
