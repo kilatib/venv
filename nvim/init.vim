@@ -44,6 +44,17 @@ Plug 'prettier/vim-prettier', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
+  Plug 'Shougo/vimproc.vim', {
+    \ 'build' : {
+    \     'windows' : 'tools\\update-dll-mingw',
+    \     'cygwin' : 'make -f make_cygwin.mak',
+    \     'mac' : 'make -f make_mac.mak',
+    \     'linux' : 'make',
+    \     'unix' : 'gmake',
+    \    },
+    \ }
+  
+  Plug 'Quramy/tsuquyomi'
 
 
 " Unit Tests
@@ -164,7 +175,9 @@ call plug#end()
   nmap <C-Left> :vertical res -10<CR>
   nmap <leader><Right> :vertical res +10<CR>
   nmap <leader><Left> :vertical res -10<CR>
-  nmap <leader>r :NERDTreeFind<cr>
+  nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p>
+  nmap <Leader>r<Left> :NERDTreeFind<CR>
+  
 
 " CtrlP
   "let g:ctrlp_map = '<C-S>o'
@@ -240,11 +253,16 @@ call plug#end()
 " tabline   
   map <tab> :bnext<CR>
   map <S-tab> :bprev<CR>
+  let g:airline#extensions#tabline#show_tabs = 0
   let g:airline#extensions#tabline#enabled = 1           " enable airline tabline                                                           
   let g:airline#extensions#tabline#show_close_button = 0 " remove 'X' at the end of the tabline                                            
   let g:airline#extensions#tabline#fnamemod = ':t'       " disable file paths in the tab                                                    
   let g:airline#extensions#tabline#tab_min_count = 2     " minimum of 2 tabs needed to display the tabline 
+  let g:airline#extensions#tabline#show_splits = 1 "enable/disable displaying open splits per tab (only when tabs are opened). >
+  let g:airline#extensions#tabline#show_buffers = 1 " enable/disable displaying buffers with a single tab
+  let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
   nnoremap <leader>d :bp<CR> :bd#<CR>
+  nnoremap <leader>b :ls<cr>:b<space>
 
   let g:airline#extensions#tabline#buffer_idx_mode = 1
   
