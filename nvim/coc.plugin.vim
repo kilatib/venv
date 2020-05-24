@@ -1,5 +1,8 @@
 " :CocInstall coc-angular coc-tsserver coc-eslint coc-json coc-prettier coc-css coc-html coc-lit-html coc-phpls
 
+" disable nvim version warning
+let g:coc_disable_startup_warning=1
+
 " if hidden is not set, TextEdit might fail.
 set hidden
 
