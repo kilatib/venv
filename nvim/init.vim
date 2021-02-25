@@ -1,19 +1,28 @@
 syntax on
 
-set rnu nu
-set tabstop=4
+set exrc
+set relativenumber
+set nohlsearch
+set hidden
+set noerrorbells
+set tabstop=4 
+set softtabstop=4
 set shiftwidth=4
 set expandtab
-set background=dark
-set autoread
-set nobackup
-set nowritebackup
+set smartindent
+set nu
+set nowrap
+set smartcase
 set noswapfile
-set encoding=UTF-8
-
-
-set relativenumber
-set nu rnu
+set nobackup
+set undodir=~/.vim/undodir
+set undofile
+set incsearch
+" set termguicolors
+set scrolloff=8
+set noshowmode
+set completeopt=menu,noinsert,noselect
+set signcolumn=yes
 
 call plug#begin('~/.vim/plugged')
 Plug 'neovim/nvim-lspconfig'
@@ -53,13 +62,23 @@ Plug 'flazz/vim-colorschemes'
 Plug 'chriskempson/base16-vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
 
+" telescope requirements...
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
+
 " Fire Nvim
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(69) } }
-
+:
 " prettier
 Plug 'sbdchd/neoformat'
 
 call plug#end()
+
+
+colorscheme gruvbox
+
 
 if executable('rg')
     let g:rg_derive_root='true'
