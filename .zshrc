@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/src/nvim-osx64/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export UHOME="$(echo $(bash -c "cd ~${USER} && pwd"))"
@@ -69,7 +69,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-completions zsh-autosuggestions zsh-syntax-highlighting tmux)
+plugins=(git  tmux)
 autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh

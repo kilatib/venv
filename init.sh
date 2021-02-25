@@ -17,6 +17,10 @@ rm -rf .tmux.conf
 ln -s $REPO/.tmux.conf
 
 mkdir -p .config/nvim
+mkdir -p ~/.config/nvim/plugin
+mkdir -p ~/.config/nvim/after/plugin
+
+
 rm -rf .config/nvim/init.vim
 cd .config/nvim
 rm -rf init.vim
@@ -29,4 +33,6 @@ rm -rf .ssh/config
 cd .ssh
 ln -s $REPO/.ssh/config
 
-
+# vimplug 
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
