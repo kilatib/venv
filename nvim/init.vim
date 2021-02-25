@@ -123,9 +123,11 @@ call plug#end()
   set number           "line number
   set nowrap           "no line wrapping
   colorscheme darcula
-  " set termguicolors
-  let g:lightline = { 'colorscheme': 'darculaOriginal' } 
-" show unreddable symbols 
+  if has("gui_running") 
+     set termguicolors
+  else
+     let g:lightline = { 'colorscheme': 'darculaOriginal' } 
+  endif
   "set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»
   set list
   set mouse +=a
