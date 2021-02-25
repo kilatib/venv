@@ -223,6 +223,10 @@ call plug#end()
   let g:syntastic_check_on_open = 1
   let g:syntastic_check_on_wq = 0
 
+" tsuquyomi
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi'] " You shouldn't use 'tsc' checker.
+
 "
 " Vim-javascript
   let g:javascript_plugin_jsdoc = 1
@@ -255,7 +259,7 @@ call plug#end()
 " tabline   
   map <tab> :bnext<CR>
   map <S-tab> :bprev<CR>
-  let g:airline#extensions#tabline#show_tabs = 0
+  let g:airline#extensions#tabline#show_tabs = 1
   let g:airline#extensions#tabline#enabled = 1           " enable airline tabline                                                           
   let g:airline#extensions#tabline#show_close_button = 0 " remove 'X' at the end of the tabline                                            
   let g:airline#extensions#tabline#fnamemod = ':t'       " disable file paths in the tab                                                    
@@ -346,3 +350,6 @@ call plug#end()
 " Search word
   cnoreabbrev Ack Ack!
   nnoremap <Leader>a :Ack!<Space>
+
+" Ato reload file 
+set autoread
