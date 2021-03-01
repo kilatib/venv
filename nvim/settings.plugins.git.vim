@@ -1,3 +1,4 @@
+" See :h fzf-checkout for a list of all available commands and settings.
 let g:fzf_command_prefix = ''
 let g:fzf_checkout_git_options = '--sort=-committerdate'
 let g:fzf_branch_actions = {
