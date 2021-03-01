@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$HOME/src/nvim-osx64/bin:$PATH
+export LANG=en_US.UTF-8
 
 # Path to your oh-my-zsh installation.
 export UHOME="$(echo $(bash -c "cd ~${USER} && pwd"))"
