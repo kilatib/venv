@@ -9,10 +9,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
 
 
-" Neovim Tree shitter
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-treesitter/playground'
-
 " Git
 Plug 'stsewd/fzf-checkout.vim'
 Plug 'tpope/vim-fugitive'
@@ -23,6 +19,7 @@ Plug 'mbbill/undotree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
+
 
 " Syntax
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
@@ -40,7 +37,8 @@ Plug 'phanviet/vim-monokai-pro'
 Plug 'flazz/vim-colorschemes'
 Plug 'chriskempson/base16-vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
-
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Fire Nvim
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(69) } }
