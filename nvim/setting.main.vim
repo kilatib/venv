@@ -24,6 +24,8 @@ set noshowmode
 set completeopt=menu,noinsert,noselect
 set signcolumn=yes
 
+set clipboard+=unnamedplus
+
 colorscheme gruvbox
 if executable('rg')
     let g:rg_derive_root='true'

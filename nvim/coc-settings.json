@@ -5,5 +5,6 @@
   "explorer.keyMappings.global": {
     "<cr>": ["expandable?", "expand", "open"],
     "v": "open:vsplit"
-  }
+  },
+  "intelephense.licenceKey": "00Q152AEXSCX41B"
 }
