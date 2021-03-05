@@ -19,6 +19,9 @@ Plug 'mbbill/undotree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 
 " Syntax
@@ -46,7 +49,10 @@ Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(69) } }
 " prettier
 Plug 'sbdchd/neoformat'
 
+" checkster | outmatch 
+
 call plug#end()
+
 
 
 

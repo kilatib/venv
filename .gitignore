@@ -1,3 +1,4 @@
 .netrwhist
 node_modules
 package-lock.json
+nvim/settings.plugins.outmatch*

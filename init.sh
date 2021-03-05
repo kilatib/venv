@@ -63,3 +63,5 @@ brew install ripgrep
 brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 brew install the_silver_searcher
 brew install fd
+pip install requests
+npm i intelephense -g
