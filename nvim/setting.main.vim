@@ -38,3 +38,4 @@ nnoremap <Leader>+ :vertical resize +5<CR>
 nnoremap <Leader>- :vertical resize -5<CR>
 nnoremap <space>e :CocCommand explorer<CR>
 
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>

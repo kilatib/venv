@@ -103,3 +103,15 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+
+
+let g:INC=0 
+function! INC_F(firstpoint,...)
+    let a:num = get(a:, 1, 1)
+    let a:sum = g:INC + a:firstpoint
+    let g:INC = g:INC + a:num
+    return a:sum                                                                                                                             
+endfunction
+" create a map for INC_F
+cab inc s/\%V\(\d\+\)/\=INC_F(submatch(1))/ \| let INC=0

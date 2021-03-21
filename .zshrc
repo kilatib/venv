@@ -117,3 +117,8 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias apache_logs='docker exec -i -t src_frontend_1 /bin/bash -c "tail -f /var/log/apache2/*"'
+if [ "$TMUX" = "" ]; then 
+    tmux attach -t work || tmux new -s work  
+    cd ~/src 
+fi
+

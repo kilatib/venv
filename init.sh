@@ -5,6 +5,11 @@ export REPO=${UHOME}/src/venv
 
 cd $UHOME
 
+#terminal
+mkdir -p $UHOME/.config/alacritty
+rm -rf $UHOME/.config/alacritty/alacritty.yml
+ln -s $REPO/alacritty/alacritty.yml $UHOME/.config/alacritty  
+
 rm -rf .zshrc 
 ln -s $REPO/.zshrc
 

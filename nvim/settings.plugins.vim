@@ -42,14 +42,18 @@ Plug 'chriskempson/base16-vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'chrisbra/colorizer'
 
-" Fire Nvim
-Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(69) } }
-:
+"
 " prettier
 Plug 'sbdchd/neoformat'
 
+" Debugger Plugins
+Plug 'puremourning/vimspector'
+Plug 'szw/vim-maximizer'
+            
 " checkster | outmatch 
+" 
 
 call plug#end()
 
