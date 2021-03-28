@@ -11,7 +11,7 @@ rm -rf $UHOME/.config/alacritty/alacritty.yml
 ln -s $REPO/alacritty/alacritty.yml $UHOME/.config/alacritty  
 
 rm -rf $UHOME/.zshrc 
-ln -s $REPO/.zshrc
+ln -s $REPO/.zshrc $UHOME
 
 rm -rf $UHOME/.ctags
 rm -rf $UHOME/.ctagsignore
@@ -19,7 +19,7 @@ ln -s $REPO/.ctags
 ln -s $REPO/.ctagsignore
 
 rm -rf $UHOME/.tmux.conf
-ln -s $REPO/.tmux.conf
+ln -s $REPO/.tmux.conf $UHOME
 
 mkdir -p $UHOME/.config/nvim
 mkdir -p $UHOME/.config/nvim/plugin
