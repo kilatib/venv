@@ -53,7 +53,8 @@ Plug 'puremourning/vimspector'
 Plug 'szw/vim-maximizer'
             
 " checkster | outmatch 
-" 
+"
+Plug 'alvan/vim-php-manual'
 
 call plug#end()
 

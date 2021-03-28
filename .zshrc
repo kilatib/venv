@@ -122,3 +122,6 @@ if [ "$TMUX" = "" ]; then
     cd ~/src 
 fi
 
+
+alias demo_frontend='aws ec2 describe-instances --filters Name=tag:Environment,Values=demo Name=tag:Role,Values=front --region us-east-1 --output text --query "Reservations[*].Instances[*].PrivateIpAddress"'
+alias release_frontend='aws ec2 describe-instances --filters Name=tag:Environment,Values=release Name=tag:Role,Values=front --region us-east-1 --output text --query "Reservations[*].Instances[*].PrivateIpAddress"'

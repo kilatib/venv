@@ -10,24 +10,24 @@ mkdir -p $UHOME/.config/alacritty
 rm -rf $UHOME/.config/alacritty/alacritty.yml
 ln -s $REPO/alacritty/alacritty.yml $UHOME/.config/alacritty  
 
-rm -rf .zshrc 
+rm -rf $UHOME/.zshrc 
 ln -s $REPO/.zshrc
 
-rm -rf .ctags
-rm -rf .ctagsignore
+rm -rf $UHOME/.ctags
+rm -rf $UHOME/.ctagsignore
 ln -s $REPO/.ctags
 ln -s $REPO/.ctagsignore
 
-rm -rf .tmux.conf
+rm -rf $UHOME/.tmux.conf
 ln -s $REPO/.tmux.conf
 
-mkdir -p .config/nvim
-mkdir -p ~/.config/nvim/plugin
-mkdir -p ~/.config/nvim/after/plugin
+mkdir -p $UHOME/.config/nvim
+mkdir -p $UHOME/.config/nvim/plugin
+mkdir -p $UHOME/.config/nvim/after/plugin
 
 cd $UHOME
-rm -rf .config/nvim/init.vim
-cd .config/nvim
+rm -rf $UHOME/.config/nvim/init.vim
+cd $UHOME/.config/nvim
 rm -rf *.vim
 rm -rf *.json
 ln -s $REPO/nvim/*.vim ./
@@ -39,10 +39,10 @@ cd .ssh
 ln -s $REPO/ssh/* ./
 
 cd $UHOME
-chmod -R 700 .ssh
-chmod 600 ./ssh/config
-chmod 600 ./ssh/*.*
-chmod 644 ./ssh/*.pub
+chmod -R 700 $UHOME/.ssh
+chmod 600 $UHOME/.ssh/config
+chmod 600 $UHOME/.ssh/*.*
+chmod 644 $UHOME/.ssh/*.pub
 
 # vimplug 
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
