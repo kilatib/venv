@@ -8,5 +8,8 @@
   },
   "intelephense.licenceKey": "00Q152AEXSCX41B",
   "phpls.path": "/usr/local/bin/intelephense",
-  "diagnostic.checkCurrentLine": true
+  "diagnostic.checkCurrentLine": true,
+  "html.autoClosingTags": true,
+  "html.format.indentInnerHtml": true,
+  "html.filetypes": ["html","handlebars","htmldjango","blade", "tpl"]
 }

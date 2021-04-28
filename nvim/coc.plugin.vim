@@ -3,6 +3,8 @@
 "'' Conquer of Completion (CoC) ''"
 if filereadable(expand("~/.vim/plugged/coc.nvim/plugin/coc.vim"))
   let g:coc_global_extensions=[
+      \'coc-snippets',
+      \'coc-pairs',
       \'coc-actions',
       \'coc-angular',
       \'coc-css',
@@ -61,7 +63,13 @@ if filereadable(expand("~/.vim/plugged/coc.nvim/plugin/coc.vim"))
   \     'file-child-template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
   \   }
   \ }
-   source ~/.config/nvim/settings.plugins.coc.vim
+
+
+  let g:coc_filetype_map = {
+   \ 'js.mjs': 'js',
+   \ 'js.mjs2': 'javascript',
+   \ } 
+  source ~/.config/nvim/settings.plugins.coc.vim
 endif
 
 
