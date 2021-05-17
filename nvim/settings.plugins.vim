@@ -51,10 +51,16 @@ Plug 'sbdchd/neoformat'
 " Debugger Plugins
 Plug 'puremourning/vimspector'
 Plug 'szw/vim-maximizer'
-            
+
+"
+" Run Test 
+Plug 'vim-test/vim-test'
+
 " checkster | outmatch 
 "
 Plug 'alvan/vim-php-manual'
+Plug 'liuchengxu/vista.vim'
+Plug 'blueyed/smarty.vim'
 
 call plug#end()
 

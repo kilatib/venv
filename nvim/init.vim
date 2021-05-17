@@ -6,3 +6,4 @@ source ~/.config/nvim/settings.plugins.git.vim
 source ~/.config/nvim/settings.plugins.outmatch.vim
 source ~/.config/nvim/coc.plugin.vim
 source ~/.config/nvim/settings.plugins.debug.vim
+source ~/.config/nvim/settings.plugins.test.vim
