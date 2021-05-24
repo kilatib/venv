@@ -1,9 +1,8 @@
 " these "Ctrl mappings" work well when Caps Lock is mapped to Ctrl
-nmap <silent> t<C-n> :TestNearest<CR>
-nmap <silent> t<C-f> :TestFile<CR>
-nmap <silent> t<C-s> :TestSuite<CR>
-nmap <silent> t<C-l> :TestLast<CR>
-nmap <silent> t<C-g> :TestVisit<CR>
+nnoremap <leader>tt :TestNearest<CR>
+nnoremap <leader>tf :TestFile<CR>
+nnoremap <leader>ts :TestSuite<CR>
+nnoremap <leader>tl :TestLast<CR>
+nnoremap <leader>tv :TestVisit<CR>
 
-
-let test#php#codeception#executable = 'docker exec -i -t src_frontend_1 ./vendor/bin/codecept '
+let test#php#codeception#executable = 'docker exec -w /opt/checkster/core -it src_frontend_1 /usr/sbin/codecept -c ./codeception.yml '
