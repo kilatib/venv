@@ -26,6 +26,7 @@ Plug 'nvim-telescope/telescope.nvim'
 
 " Syntax
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'tomtom/tcomment_vim'
 
 " post install (yarn install | npm install) then load plugin only for editing supported files
 Plug 'prettier/vim-prettier', {
